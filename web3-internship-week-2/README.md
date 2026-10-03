@@ -1,8 +1,7 @@
 # Web3 & Blockchain Internship — Week 2 Repository
 
 **Skill Set Go EduTech Blockchain & Web3 Internship**  
-**Student Name:** [TODO — Enter Your Full Name]  
-**Internship Batch / ID:** [TODO — Enter Student ID / Batch]  
+**Student Name:** Harshal Uttam Bane  
 **Solidity Compiler Version:** `0.8.20`  
 
 ---
