@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skill Set Go — Web3 &amp; Blockchain Internship Week 2 Hub</title>
+  <meta name="description" content="Week 2 Solidity Smart Contract Development Portfolio. Explore Solidity fundamentals, custom ERC-20 token (SkillToken - STK), role-based access control, and testnet deployment verification." />
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-logo">
+          <i class="fa-solid fa-coins"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Skill Set Go <span>Web3 Week 2</span></h1>
+          <span class="badge">ERC-20 &amp; Access Control</span>
+        </div>
+      </div>
+
+      <div class="nav-stats">
+        <div class="token-pill">
+          <span class="pulse-dot"></span> SkillToken (STK) • <strong>1,000,000 STK</strong>
+        </div>
+        <a href="#token-sandbox" class="btn btn-secondary">
+          <i class="fa-solid fa-terminal"></i> Token Sandbox
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-tag">
+        <i class="fa-solid fa-shield-halved"></i> Week 2 Deliverables: Solidity 0.8.20 • ERC-20 Standard • Access Control
+      </div>
+      <h2>Solidity Development &amp; <span class="highlight-text">ERC-20 Token Engine</span></h2>
+      <p class="hero-desc">
+        Complete deliverables for Week 2 of the Skill Set Go EduTech Blockchain Internship. Featuring core language fundamentals, custom <strong>ERC-20 Token standard</strong> implementation (<code>SkillToken.sol</code>), role-based ownership &amp; emergency pause mechanics (<code>SkillTokenControlled.sol</code>), and live interactive token transfer testing.
+      </p>
+
+      <div class="hero-modules">
+        <div class="mod-pill">
+          <i class="fa-solid fa-code"></i>
+          <div>
+            <strong>01. Fundamentals</strong>
+            <span>Variables, Arrays, Mappings, Structs</span>
+          </div>
+        </div>
+        <div class="mod-pill">
+          <i class="fa-solid fa-gem"></i>
+          <div>
+            <strong>02. Custom ERC-20</strong>
+            <span>EIP-20 Standard, Mint, Allowances</span>
+          </div>
+        </div>
+        <div class="mod-pill">
+          <i class="fa-solid fa-lock"></i>
+          <div>
+            <strong>03. Access Control</strong>
+            <span>onlyOwner, Pausable, Events</span>
+          </div>
+        </div>
+        <div class="mod-pill">
+          <i class="fa-solid fa-rocket"></i>
+          <div>
+            <strong>04. Deployment</strong>
+            <span>Sepolia Testnet Verification</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Multi-Column Lab -->
+  <main class="container">
+    <!-- Interactive Token Simulator & Faucet Sandbox -->
+    <div class="grid-2col" id="token-sandbox">
+      <!-- Left: Interactive ERC-20 Token Tester -->
+      <div class="card simulator-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-wallet"></i>
+            <h3>SkillToken (STK) Interactive Wallet</h3>
+          </div>
+          <span class="badge-erc20">ERC-20 Standard</span>
+        </div>
+
+        <!-- Token Balance Card -->
+        <div class="wallet-balance-card">
+          <div class="bal-label">Connected Deployer Balance</div>
+          <div class="bal-val"><span id="user-balance">1,000,000</span> <span class="symbol">STK</span></div>
+          <div class="bal-meta">
+            <span>Decimals: <strong>18</strong></span>
+            <span>Total Supply: <strong>1,000,000 STK</strong></span>
+            <span>Status: <strong class="text-green" id="contract-pause-status"><i class="fa-solid fa-circle-check"></i> Active</strong></span>
+          </div>
+        </div>
+
+        <!-- Transfer Form -->
+        <div class="action-box">
+          <h4><i class="fa-solid fa-paper-plane"></i> Execute transfer(address recipient, uint256 amount)</h4>
+          <div class="form-group">
+            <label for="recipient-addr">Recipient Address</label>
+            <input type="text" id="recipient-addr" value="0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC">
+          </div>
+          <div class="form-group">
+            <label for="transfer-amount">Amount (STK)</label>
+            <input type="number" id="transfer-amount" value="500" min="1" max="1000000">
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-primary" id="btn-transfer">
+              <i class="fa-solid fa-arrow-right-arrow-left"></i> Transfer Tokens
+            </button>
+            <button class="btn btn-secondary" id="btn-faucet">
+              <i class="fa-solid fa-faucet-drip"></i> Faucet (+100 STK)
+            </button>
+          </div>
+        </div>
+
+        <!-- Controlled Mechanics Toggle (Access Control) -->
+        <div class="access-control-box">
+          <div class="access-header">
+            <h4><i class="fa-solid fa-key"></i> Owner Access Control Actions (onlyOwner)</h4>
+          </div>
+          <div class="access-actions">
+            <button class="btn btn-sm btn-outline-warning" id="btn-toggle-pause">
+              <i class="fa-solid fa-pause"></i> Toggle Pause State
+            </button>
+            <button class="btn btn-sm btn-outline-danger" id="btn-burn-tokens">
+              <i class="fa-solid fa-fire"></i> Burn 1,000 STK
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Event Stream Panel -->
+        <div class="events-panel">
+          <div class="events-header">
+            <span><i class="fa-solid fa-wave-square"></i> Emitted EVM Event Logs</span>
+            <span class="clear-events" id="btn-clear-logs">Clear</span>
+          </div>
+          <div class="events-list" id="events-list">
+            <div class="event-item">
+              <span class="event-name">Transfer</span>
+              <span class="event-details">from: 0x0000...0000, to: 0x742d...f44e, value: 1,000,000 STK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contract Code Tabs & Spec Viewer -->
+      <div class="card code-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-file-code"></i>
+            <h3>Contract Source Code</h3>
+          </div>
+          <div class="code-tabs">
+            <button class="code-tab active" data-contract="skilltoken">SkillToken.sol</button>
+            <button class="code-tab" data-contract="controlled">SkillTokenControlled.sol</button>
+          </div>
+        </div>
+
+        <div class="code-viewer-wrap">
+          <div class="code-action-bar">
+            <span class="code-lang">Solidity ^0.8.20</span>
+            <button class="btn-copy-code" id="btn-copy-sol"><i class="fa-regular fa-copy"></i> Copy</button>
+          </div>
+          <pre class="code-block"><code id="code-display">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+interface IERC20 {
+    function totalSupply() external view returns (uint256);
+    function balanceOf(address account) external view returns (uint256);
+    function transfer(address recipient, uint256 amount) external returns (bool);
+    function allowance(address owner, address spender) external view returns (uint256);
+    function approve(address spender, uint256 amount) external returns (bool);
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
+contract SkillToken is IERC20 {
+    string public name = "Skill Token";
+    string public symbol = "STK";
+    uint8 public decimals = 18;
+    uint256 private _totalSupply;
+
+    mapping(address => uint256) private _balances;
+    mapping(address => mapping(address => uint256)) private _allowances;
+
+    constructor(uint256 initialSupply) {
+        uint256 scaledSupply = initialSupply * (10 ** uint256(decimals));
+        _mint(msg.sender, scaledSupply);
+    }
+
+    function totalSupply() public view override returns (uint256) {
+        return _totalSupply;
+    }
+
+    function balanceOf(address account) public view override returns (uint256) {
+        return _balances[account];
+    }
+
+    function transfer(address recipient, uint256 amount) public override returns (bool) {
+        _transfer(msg.sender, recipient, amount);
+        return true;
+    }
+
+    function _transfer(address sender, address recipient, uint256 amount) internal {
+        require(sender != address(0), "ERC20: transfer from the zero address");
+        require(recipient != address(0), "ERC20: transfer to the zero address");
+        require(_balances[sender] >= amount, "ERC20: transfer amount exceeds balance");
+
+        _balances[sender] -= amount;
+        _balances[recipient] += amount;
+        emit Transfer(sender, recipient, amount);
+    }
+
+    function _mint(address account, uint256 amount) internal {
+        require(account != address(0), "ERC20: mint to the zero address");
+        _totalSupply += amount;
+        _balances[account] += amount;
+        emit Transfer(address(0), account, amount);
+    }
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Curriculum Modules Matrix -->
+    <section class="card tasks-card">
+      <div class="card-header">
+        <div class="card-title">
+          <i class="fa-solid fa-list-check"></i>
+          <h3>Week 2 Deliverable Modules</h3>
+        </div>
+        <span class="badge">Skill Set Go Handbook</span>
+      </div>
+
+      <div class="tasks-grid">
+        <div class="task-box">
+          <div class="task-badge">Task 1</div>
+          <h4>Solidity Fundamentals</h4>
+          <p>State vs local variables, value/reference types, dynamic arrays, nested mappings, custom structs, gas optimization in loops.</p>
+          <div class="task-meta">5 Smart Contracts • 01-solidity-fundamentals</div>
+        </div>
+
+        <div class="task-box">
+          <div class="task-badge">Task 2</div>
+          <h4>ERC-20 Token Implementation</h4>
+          <p>Clean EIP-20 implementation: <code>totalSupply</code>, <code>balanceOf</code>, <code>transfer</code>, <code>approve</code>, and <code>transferFrom</code> allowances.</p>
+          <div class="task-meta">SkillToken.sol • 02-erc20-token</div>
+        </div>
+
+        <div class="task-box">
+          <div class="task-badge">Task 3</div>
+          <h4>Events &amp; Access Control</h4>
+          <p>Ownership pattern, custom modifiers (<code>onlyOwner</code>, <code>whenNotPaused</code>), minting, burning, and contract pausing.</p>
+          <div class="task-meta">SkillTokenControlled.sol • 03-functions-events</div>
+        </div>
+
+        <div class="task-box">
+          <div class="task-badge">Task 4</div>
+          <h4>Testnet Deployment &amp; Reports</h4>
+          <p>Deployment verification on Sepolia testnet / local EVM, gas profiling, positive/negative test suites, and explorer links.</p>
+          <div class="task-meta">Verified • 04-testnet-deployment</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-content">
+      <p>Skill Set Go EduTech Blockchain &amp; Web3 Internship — Week 2 Deliverables</p>
+      <p class="author">Developed by <a href="https://github.com/MrHarshalBane" target="_blank">Harshal Uttam Bane</a></p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toast-text">Action completed successfully!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
