@@ -4,6 +4,27 @@
 **Student Name:** Harshal Uttam Bane  
 **Solidity Compiler Version:** `0.8.20`  
 
+[![Live Demo](https://img.shields.io/badge/Live_Hub-mrharshalbane.github.io%2Fweb3--internship--week--2-gold?style=for-the-badge&logo=github)](https://mrharshalbane.github.io/web3-internship-week-2/)
+[![Solidity](https://img.shields.io/badge/Solidity-0.8.20-363636?style=for-the-badge&logo=solidity)](https://soliditylang.org/)
+[![Ethereum](https://img.shields.io/badge/Network-Sepolia_Testnet-627EEA?style=for-the-badge&logo=ethereum)](https://sepolia.etherscan.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+> 🌐 **Interactive Web3 Hub:** Explore the live ERC-20 token simulator and interactive wallet sandbox directly in your browser:  
+> 👉 **[https://mrharshalbane.github.io/web3-internship-week-2/](https://mrharshalbane.github.io/web3-internship-week-2/)**
+
+---
+
+## 📢 7-Day Organic Promotion & Developer Discovery Campaign
+
+A zero-cost, community-first 7-day organic growth campaign to share and optimize discoverability for this Web3 smart contract repository:
+
+| Phase | Timeline | Focus | Key Actions & Channels |
+|---|---|---|---|
+| **Day 1** | Kickoff | **SEO, Discoverability & Repo Curation** | Complete README overhaul, GitHub topics (`solidity`, `erc20`, `web3`, `smart-contracts`, `ethereum`), Open Graph social sharing cards, and JSON-LD schema on the live website. |
+| **Days 2–4** | Outreach | **Targeted Web3 & Dev Community Sharing** | Share technical insights and live simulator walkthroughs on Reddit (r/ethdev, r/solidity), Developer DAO, Farcaster, Web3 Discord servers, and LinkedIn. |
+| **Days 5–6** | Engagement | **Fostering Genuine Developer Engagement** | Gather feedback on access control safety, token mint/burn mechanics, reentrancy guards, and invite developers to test on Sepolia / browser sandbox. |
+| **Day 7** | Retrospective | **Analytics Review & Reach Assessment** | Track GitHub Insights (Traffic, Clones, Stars, Referrers) and website interaction metrics to assess community reach and engagement. |
+
 ---
 
 ## 📌 Project Objective

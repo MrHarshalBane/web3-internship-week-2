@@ -266,4 +266,52 @@ contract SkillTokenControlled {
       showToast('Copied code!');
     });
   });
+
+  // Campaign Kit Copy
+  const btnCopyCampaignSummary = document.getElementById('btn-copy-campaign-summary');
+  if (btnCopyCampaignSummary) {
+    btnCopyCampaignSummary.addEventListener('click', () => {
+      const summaryText = `🚀 7-Day Web3 Promotion Campaign Kit:
+• Day 1: GitHub SEO, Repo Curation & Metadata Optimization (Done)
+• Days 2–4: Community Technical Sharing (Reddit r/ethdev, Developer DAO, Farcaster, Web3 Discords)
+• Days 5–6: Fostering Genuine Engagement & Interactive Token Simulation Feedback
+• Day 7: Analytics Review (GitHub Traffic, Stars, Forks & Test Transfers)
+
+Live Hub: https://mrharshalbane.github.io/web3-internship-week-2/
+GitHub: https://github.com/MrHarshalBane/web3-internship-week-2`;
+      navigator.clipboard.writeText(summaryText).then(() => {
+        showToast('Full 7-Day Campaign Kit copied to clipboard!');
+      });
+    });
+  }
+
+  // Pitch Snippet Copy
+  const btnCopyPitch = document.getElementById('btn-copy-pitch');
+  const pitchSnippet = document.getElementById('pitch-snippet');
+  if (btnCopyPitch && pitchSnippet) {
+    btnCopyPitch.addEventListener('click', () => {
+      navigator.clipboard.writeText(pitchSnippet.textContent.replace(/^"|"$/g, '')).then(() => {
+        showToast('Community outreach snippet copied!');
+      });
+    });
+  }
+
+  // Share on X / Twitter
+  const btnShareTwitter = document.getElementById('btn-share-twitter');
+  if (btnShareTwitter) {
+    btnShareTwitter.addEventListener('click', () => {
+      const tweetText = encodeURIComponent("Explore my Solidity & ERC-20 Token Engine built during the Web3 internship! Interactive browser testing, Sepolia testnet verification & access control mechanics.\n\nLive Hub: https://mrharshalbane.github.io/web3-internship-week-2/\n#Web3 #Solidity #Ethereum #Blockchain #BuildInPublic");
+      window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, '_blank');
+    });
+  }
+
+  // Share on LinkedIn
+  const btnShareLinkedin = document.getElementById('btn-share-linkedin');
+  if (btnShareLinkedin) {
+    btnShareLinkedin.addEventListener('click', () => {
+      const shareUrl = encodeURIComponent("https://mrharshalbane.github.io/web3-internship-week-2/");
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`, '_blank');
+    });
+  }
 });
+
